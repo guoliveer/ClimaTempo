@@ -15,10 +15,11 @@
 <div class="card">
     <div class="container">
     <p>card1</p> 
-	<form action="busca.php" method="post">
+	<form name=busca action="buscar.php" method="post">
 <input class="btn input_margintop" type="search" name="busca" placeholder="Cidade">
 <input class="btn btn_textcenter bg-white" type="submit" class="solid" value="Go">
 </form>
+
 <p></p>
 
 <?php
@@ -33,12 +34,25 @@ $json_str = '{"locales": '.
 $jsonObj = json_decode($json_str);
 $locales = $jsonObj->locales;
 
+
+
 //navega pelos elementos do array, imprimindo cada empregado
 foreach ( $locales as $e )
     {
-	echo "Nome: $e->name - id: $e->id - state: $e->state - latitude: $e->latitude - longitude: $e->longitude; <br><br>"; 
+//	echo "Nome: $e->name - id: $e->id - state: $e->state - latitude: $e->latitude - longitude: $e->longitude; <br><br>"; 
     }
 ?> 
+
+<?php
+
+$teste = array_column($locales, "name");
+//$found_key = array_search($buscar, $teste);
+//echo $found_key;
+
+echo $buscar;
+
+
+?>
 
   </div>
 </div>
